@@ -119,7 +119,7 @@ file = st.file_uploader(
 
 if file is not None:
     # Center the transcribe button using columns
-    left_col, center_col, right_col = st.columns([1, 2, 1])
+    left_col, center_col, right_col = st.columns([3,1,3])
     with center_col:
         transcribe_button = st.button("Transcribe", type="primary", use_container_width=True)
     

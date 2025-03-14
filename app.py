@@ -118,8 +118,10 @@ file = st.file_uploader(
 )
 
 if file is not None:
-    # Show transcribe button only when file is uploaded
-    transcribe_button = st.button("🎯 Transcribe", type="primary")
+    # Center the transcribe button using columns
+    left_col, center_col, right_col = st.columns([1, 2, 1])
+    with center_col:
+        transcribe_button = st.button("Transcribe", type="primary", use_container_width=True)
     
     if transcribe_button:
         # Create a temporary file
@@ -224,6 +226,6 @@ if file is not None:
             if 'audio_path' in locals() and os.path.exists(audio_path):
                 os.unlink(audio_path)
     else:
-        st.info("👆 Press the Transcribe button when you're ready to start the transcription.")
+        st.info("Press the Transcribe button when you're ready to start the transcription.")
 else:
     st.info("Please upload an audio or video file to begin transcription.")

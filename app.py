@@ -69,24 +69,22 @@ def generate_vtt_content(subtitles):
 
 # Set page configuration
 st.set_page_config(
-    page_title="Audio/Video Transcription with Whisper",
+    page_title="Audio/Video Transcription",
     page_icon="🎙️",
     layout="wide"
 )
 
 # Title and description
-st.title("🎙️ Audio/Video Transcription with Whisper")
+st.title("🎙️ Audio/Video Transcription")
 st.markdown("""
 This application transcribes audio/video files into text and generates subtitles in multiple formats.
-Upload a file and select the Whisper model you want to use for transcription.
+Upload a file and select the model you want to use for transcription.
 """)
 
 # Check FFmpeg availability
 if not check_ffmpeg():
     st.warning("""
     ⚠️ FFmpeg is not installed. Video file processing will not work.
-    
-    Please check the [README](https://github.com/yourusername/audio-transcription-whisper#prerequisites) for installation instructions.
     If you're using Streamlit Cloud, please ensure `packages.txt` contains `ffmpeg`.
     """)
 
@@ -97,9 +95,9 @@ WHISPER_MODELS = ["tiny", "base", "small", "medium", "large"]
 with st.sidebar:
     st.header("Model Configuration")
     selected_model = st.selectbox(
-        "Select Whisper Model",
+        "Select Transcription Model",
         WHISPER_MODELS,
-        help="Choose the Whisper model to use for transcription. Larger models are more accurate but slower."
+        help="Choose the model to use for transcription. Larger models are more accurate but slower."
     )
     
     st.markdown("""
